@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Parser</title>
+    <style>
+        h1 {
+            align-items: center;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+         }
+
+        button {
+            width: 80px;
+            height: 30px;
+            margin-left: 700px;
+            background-color: #1B98F5;
+            border-radius: 15px;
+        }
+
+        button:hover {
+            background-color: #12B0E8;
+            color: white;
+            cursor: pointer;
+        }
+       
+    </style>
+    <script>
+        var xmlDoc;
+        function loadxmldoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    xmlDoc = this.responseXML;
+                    myFunction();
+                }
+            };
+            xmlhttp.open("GET", "infra.xml", true);
+            xmlhttp.send();
+        }
+        function myFunction(xml, action) {
+
+            var x, i, table;
+
+            if (action == "delete") {
+                y = xmlDoc.getElementsByTagName('Infrastructure')[0];
+                xmlDoc.documentElement.removeChild(y);
+                alert('The Element has been removed!');
+            }
+            if (action == "create") {
+                a = prompt("Enter Room No");
+                b = prompt("Enter Floor No");
+                c = prompt("Enter Facility Name");
+                d = prompt("Enter Availability");
+                e = prompt("Enter fare");
+                f = prompt("Enter No of facility");
+
+
+                var i
+                var details = []
+                Infrastructure = xmlDoc.createElement("Infrastructure")
+                details[0] = xmlDoc.createElement("Room_No");
+                details[0].appendChild(xmlDoc.createTextNode(a))
+                Infrastructure.appendChild(details[0])
+                details[1] = xmlDoc.createElement("Floor_No")
+                details[1].appendChild(xmlDoc.createTextNode(b))
+                Infrastructure.appendChild(details[1])
+                details[2] = xmlDoc.createElement("Facility_Name")
+                details[2].appendChild(xmlDoc.createTextNode(c))
+                Infrastructure.appendChild(details[2])
+                details[3] = xmlDoc.createElement("Availability")
+                details[3].appendChild(xmlDoc.createTextNode(d))
+                Infrastructure.appendChild(details[3])
+                details[4] = xmlDoc.createElement("Fare")
+                details[4].appendChild(xmlDoc.createTextNode(e))
+                Infrastructure.appendChild(details[4])
+                details[5] = xmlDoc.createElement("no_of_facility")
+                details[5].appendChild(xmlDoc.createTextNode(f))
+                Infrastructure.appendChild(details[5])
+
+
+                xmlDoc.documentElement.appendChild(Infrastructure);
+            }
+            if (action == "edit") {
+
+                i = parseInt(prompt("Enter index to change")) - 1;
+                a = prompt("Enter Room No");
+                b = prompt("Enter Floor No");
+                c = prompt("Enter Facility Name");
+                d = prompt("Enter Availability");
+                e = prompt("Enter fare");
+                f = prompt("Enter No of facility");
+                xmlDoc.getElementsByTagName("Infrastructure")
+                [i].getElementsByTagName("Room_No")[0].firstChild.nodeValue = a
+
+                xmlDoc.getElementsByTagName("Infrastructure")
+                [i].getElementsByTagName("Floor_No")[0].firstChild.nodeValue = b
+
+                xmlDoc.getElementsByTagName("Infrastructure")
+                [i].getElementsByTagName("Facility_Name")[0].firstChild.nodeValue = c
+
+                xmlDoc.getElementsByTagName("Infrastructure")
+                [i].getElementsByTagName("Availability")[0].firstChild.nodeValue = d
+
+                xmlDoc.getElementsByTagName("Infrastructure")
+                [i].getElementsByTagName("Fare")[0].firstChild.nodeValue = e
+
+                xmlDoc.getElementsByTagName("Infrastructure")
+                [i].getElementsByTagName("no_of_facility")[0].firstChild.nodeValue = f
+            }
+
+            table = "<tr><th>Room_No</th><th>Floor_No</th><th>Facility_Name</th><th>Availability</th><th>fare</th><th>no_of_facility</th></tr>";
+            x = xmlDoc.getElementsByTagName("Infrastructure")
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("Room_No")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("Floor_No")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("Facility_Name")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("Availability")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("Fare")[0].childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("no_of_facility")[0].childNodes[0].nodeValue + "</td></tr>";
+
+
+            }
+            document.getElementById("demo").innerHTML = table;
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1><u>InfrastructureS</u></h1>
+    <p><button onclick="loadxmldoc()">Refresh</button></p>
+  
+    <table align="center" id="demo" border="2">
+        <tr>
+            <th>Room_No</th>
+            <th>Floor_No</th>
+            <th>Facility_Name</th>
+            <th>Availability</th>
+            <th>Fare</th>
+            <th>no_of_facility</th>
+        </tr>
+    </table>
+    <br>
+
+    <center><input type="button"class ="btn" value="Remove" onclick="myFunction(xmlDoc,'delete')" />
+    <input type="button" value="Add" onclick="myFunction(xmlDoc,'create')" name="add" />
+    <input type="button" value="Edit" onclick="myFunction(xmlDoc,'edit')" name="edit" /></center>
+
+</body>
+
+</html>
