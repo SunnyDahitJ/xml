@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="infra.xsl"?>
+<Hospital xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+xs:noNamespaceSchemaLocation="infra.xsd">
+
+   <Infrastructure>
+      <Room_No>1001</Room_No>
+      <Floor_No>01</Floor_No>
+      <Facility_Name>Ward_GL</Facility_Name>
+      <Availability>yes</Availability>
+      <Fare>1200</Fare>
+      <no_of_facility>1</no_of_facility>
+   </Infrastructure>
+   <Infrastructure>
+      <Room_No>1002</Room_No>
+      <Floor_No>01</Floor_No>
+      <Facility_Name>wards_special</Facility_Name>
+      <Availability>yes</Availability>
+      <Fare>5699</Fare>
+      <no_of_facility>1</no_of_facility>
+   </Infrastructure>
+   <Infrastructure>
+      <Room_No>1003</Room_No>
+      <Floor_No>01</Floor_No>
+      <Facility_Name>wards_GL</Facility_Name>
+      <Availability>yes</Availability>
+      <Fare>3500</Fare>
+      <no_of_facility>1</no_of_facility>
+   </Infrastructure>
+   <Infrastructure>
+      <Room_No>2001</Room_No>
+      <Floor_No>02</Floor_No>
+      <Facility_Name>laboratory_MRI</Facility_Name>
+      <Availability>yes</Availability>
+      <Fare>7500</Fare>
+      <no_of_facility>1</no_of_facility>
+   </Infrastructure>
+   <Infrastructure>
+      <Room_No>2002</Room_No>
+      <Floor_No>02</Floor_No>
+      <Facility_Name>Laboratory_Ultra-sound</Facility_Name>
+      <Availability>yes</Availability>
+      <Fare>2000</Fare>
+      <no_of_facility>1</no_of_facility>
+   </Infrastructure>
+   <Infrastructure>
+      <Room_No>2003</Room_No>
+      <Floor_No>02</Floor_No>
+      <Facility_Name>Laboratory_Radiology</Facility_Name>
+      <Availability>yes</Availability>
+      <Fare>3000</Fare>
+      <no_of_facility>1</no_of_facility>
+   </Infrastructure>
+   <Infrastructure>
+      <Room_No>3001</Room_No>
+      <Floor_No>03</Floor_No>
+      <Facility_Name>Operation theater_1</Facility_Name>
+      <Availability>no</Availability>
+      <Fare>10000</Fare>
+      <no_of_facility>1</no_of_facility>
+   </Infrastructure>
+   <Infrastructure>
+      <Room_No>3002</Room_No>
+      <Floor_No>03</Floor_No>
+      <Facility_Name>Operation theater_2</Facility_Name>
+      <Availability>yes</Availability>
+      <Fare>14990</Fare>
+      <no_of_facility>1</no_of_facility>
+   </Infrastructure>
+</Hospital>
